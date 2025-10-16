@@ -27,7 +27,8 @@ const Journal = () => {
   };
 
   return (
-    <div style={{ maxWidth: '800px', margin: '0 auto', padding: '24px' }}>
+    <div style={{ height: '100vh', overflow: 'auto', padding: '24px' }}>
+      <div style={{ maxWidth: '800px', margin: '0 auto' }}>
       <div style={{ marginBottom: '32px', padding: '24px', backgroundColor: '#f0f9ff', borderRadius: '16px', border: '1px solid #bae6fd' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '16px' }}>
           <div style={{ width: '40px', height: '40px', backgroundColor: '#0ea5e9', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -91,6 +92,7 @@ const Journal = () => {
           </div>
         </div>
       )}
+      </div>
     </div>
   );
 };

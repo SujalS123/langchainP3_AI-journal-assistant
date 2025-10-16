@@ -60,16 +60,16 @@ const Chat = () => {
   };
 
   return (
-    <div style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
-      <div style={{ padding: '24px', backgroundColor: '#fef7ff', borderBottom: '1px solid #e9d5ff' }}>
-        <h2 style={{ fontSize: '24px', fontWeight: '600', color: '#581c87', marginBottom: '8px' }}>AI Chat</h2>
-        <p style={{ color: '#7c3aed', fontSize: '14px' }}>Have a conversation with your AI assistant</p>
+    <div style={{ height: '100vh', display: 'flex', flexDirection: 'column' }}>
+      <div style={{ padding: '16px 24px', backgroundColor: '#fef7ff', borderBottom: '1px solid #e9d5ff', flexShrink: 0 }}>
+        <h2 style={{ fontSize: '20px', fontWeight: '600', color: '#581c87', marginBottom: '4px' }}>AI Chat</h2>
+        <p style={{ color: '#7c3aed', fontSize: '12px' }}>Have a conversation with your AI assistant</p>
       </div>
       
-      <div style={{ flex: 1, display: 'flex', flexDirection: 'column', backgroundColor: '#f8fafc' }}>
+      <div style={{ flex: 1, display: 'flex', flexDirection: 'column', backgroundColor: '#f8fafc', overflow: 'hidden' }}>
         <div 
           ref={chatContainerRef}
-          style={{ flex: 1, padding: '20px', overflowY: 'auto' }}
+          style={{ flex: 1, padding: '20px', overflowY: 'auto', display: 'flex', flexDirection: 'column' }}
         >
           {messages.length === 0 ? (
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%' }}>
@@ -115,20 +115,20 @@ const Chat = () => {
           )}
         </div>
 
-        <div style={{ backgroundColor: 'white', borderTop: '1px solid #e2e8f0', padding: '20px' }}>
+        <div style={{ backgroundColor: 'white', borderTop: '1px solid #e2e8f0', padding: '16px 20px', flexShrink: 0 }}>
           <div style={{ maxWidth: '800px', margin: '0 auto', display: 'flex', gap: '12px' }}>
             <textarea
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyPress={handleKeyPress}
               placeholder="Type your message..."
-              style={{ flex: 1, padding: '12px 16px', border: '1px solid #d1d5db', borderRadius: '12px', resize: 'none', minHeight: '44px', fontSize: '14px', outline: 'none' }}
+              style={{ flex: 1, padding: '12px 16px', border: '1px solid #d1d5db', borderRadius: '12px', resize: 'none', minHeight: '44px', maxHeight: '120px', fontSize: '14px', outline: 'none' }}
               rows="1"
             />
             <button
               onClick={handleSend}
               disabled={!input.trim() || loading}
-              style={{ padding: '12px 24px', backgroundColor: '#6366f1', color: 'white', borderRadius: '12px', border: 'none', fontWeight: '500', cursor: 'pointer', opacity: (!input.trim() || loading) ? 0.5 : 1 }}
+              style={{ padding: '12px 20px', backgroundColor: '#6366f1', color: 'white', borderRadius: '12px', border: 'none', fontWeight: '500', cursor: 'pointer', opacity: (!input.trim() || loading) ? 0.5 : 1, alignSelf: 'flex-end' }}
             >
               Send
             </button>
