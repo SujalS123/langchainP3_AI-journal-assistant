@@ -1,0 +1,14 @@
+# Python 3.11 compatible versions
+fastapi==0.108.0
+uvicorn==0.25.0
+langchain==0.2.16
+langchain-google-genai==1.0.10
+langchain-core==0.2.38
+python-dotenv==1.0.0
+pydantic[email]==2.8.2
+# Authentication & Database
+pymongo==4.6.1
+python-jose[cryptography]==3.3.0
+passlib==1.7.4
+python-multipart==0.0.6
+email-validator==2.1.0
