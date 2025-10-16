@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useAuthStore } from '../store/useAuthStore';
 
 const apiClient = axios.create({
-  baseURL: 'http://localhost:8001/api',
+  baseURL: 'https://langchainp3-ai-journal-assistant.onrender.com/api',
   headers: {
     'Content-Type': 'application/json',
   },

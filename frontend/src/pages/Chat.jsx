@@ -35,11 +35,17 @@ const Chat = () => {
 
     try {
       const result = await chatWithAI(input);
-      const aiMessage = { type: 'ai', content: result.response, timestamp: new Date() };
+      const aiMessage = { type: 'ai', content: result.response || 'No response received', timestamp: new Date() };
       setMessages(prev => [...prev, aiMessage]);
     } catch (error) {
       console.error('Error sending message:', error);
-      const errorMessage = { type: 'ai', content: 'Sorry, I encountered an error. Please try again.', timestamp: new Date() };
+      let errorMsg = 'Sorry, I encountered an error. Please try again.';
+      if (error.response?.status === 401) {
+        errorMsg = 'Please log in again to continue.';
+      } else if (error.code === 'NETWORK_ERROR') {
+        errorMsg = 'Network error. Please check your connection.';
+      }
+      const errorMessage = { type: 'ai', content: errorMsg, timestamp: new Date() };
       setMessages(prev => [...prev, errorMessage]);
     } finally {
       setLoading(false);

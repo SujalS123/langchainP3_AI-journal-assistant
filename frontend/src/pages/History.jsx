@@ -12,6 +12,7 @@ const History = () => {
       setHistory(result.history || []);
     } catch (error) {
       console.error('Error fetching history:', error);
+      setHistory([]);
     } finally {
       setLoading(false);
     }

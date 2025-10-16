@@ -24,3 +24,13 @@ export const getWeeklyInsights = async () => {
   const response = await apiClient.get('/memory/weekly-insights');
   return response.data;
 };
+
+export const saveJournalEntry = async (entryText) => {
+  const response = await apiClient.post('/memory/reflect', { entry_text: entryText });
+  return response.data;
+};
+
+export const getUserProfile = async () => {
+  const response = await apiClient.get('/auth/profile');
+  return response.data;
+};

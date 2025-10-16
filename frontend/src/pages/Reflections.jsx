@@ -10,10 +10,10 @@ const Reflections = () => {
     setLoading(true);
     try {
       const result = await getWeeklySummary();
-      setSummary(result.response);
+      setSummary(result.response || 'No summary available yet. Write some journal entries first!');
     } catch (error) {
       console.error('Error fetching summary:', error);
-      setSummary('Error loading summary. Please try again.');
+      setSummary('Error loading summary. Please try again later.');
     } finally {
       setLoading(false);
     }
@@ -23,10 +23,10 @@ const Reflections = () => {
     setLoading(true);
     try {
       const result = await getWeeklyInsights();
-      setInsights(result.insights);
+      setInsights(result.insights || 'No insights available yet. Write some journal entries first!');
     } catch (error) {
       console.error('Error fetching insights:', error);
-      setInsights('Error loading insights. Please try again.');
+      setInsights('Error loading insights. Please try again later.');
     } finally {
       setLoading(false);
     }
